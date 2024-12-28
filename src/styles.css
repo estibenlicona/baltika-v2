@@ -6,7 +6,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.home {
+body {
     background-image: url('/images/background.svg');
     background-size: cover;
     background-position: center;
