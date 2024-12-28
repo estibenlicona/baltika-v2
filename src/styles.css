@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.open-sans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.home {
+    background-image: url('/images/background.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
