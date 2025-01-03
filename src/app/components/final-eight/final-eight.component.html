@@ -1,0 +1,19 @@
+<div class="flex flex-col items-center gap-3">
+    @for (match of matches; track match.home.name) {
+    <div class="flex items-center gap-4 text-center">
+      <div class="flex flex-col items-center w-40">
+        <img class="h-10 w-10 object-cover rounded-xl border-2 border-gray-300" [src]="match.home.image"
+          [alt]="match.home.name">
+        <span class="font-extralight text-sm">{{ match.home.name }}</span>
+      </div>
+      <span class="text-2xl font-semibold">{{ match.home.score }}</span>
+      <span class="text-sm font-semibold italic">vs</span>
+      <span class="text-2xl font-semibold">{{ match.away.score }}</span>
+      <div class="flex flex-col items-center w-40">
+        <img class="h-10 w-10 object-cover rounded-xl border-2 border-gray-300" [src]="match.away.image"
+          [alt]="match.away.name">
+        <span class="font-extralight text-sm">{{ match.away.name }}</span>
+      </div>
+    </div>
+    }
+  </div>

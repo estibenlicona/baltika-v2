@@ -1,16 +1,19 @@
 <nav>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
+            <!-- Contenedor del título, alineado a la izquierda -->
             <div class="flex items-center font-sans antialiased font-bold text-2xl p-2">
                 🎄Christmas CUP🎅
                 <span class="text-sm text-gray-600 lg:text-primary italic">by Baktika</span>
             </div>
-            <div class="hidden md:flex space-x-4">
-                <a href="#" class="hover:bg-yellow-100 px-3 py-2 rounded-md">8vos</a>
-                <a href="#" class="hover:bg-yellow-100 px-3 py-2 rounded-md">4tos</a>
-                <a href="#" class="hover:bg-yellow-100 px-3 py-2 rounded-md">Semis</a>
-                <a href="#" class="hover:bg-yellow-100 px-3 py-2 rounded-md">Final</a>
+            <!-- Contenedor del menú, alineado a la derecha -->
+            <div class="hidden md:flex space-x-4 ml-auto">
+                <a routerLink="final-eight" routerLinkActive="bg-yellow-100" class="hover:bg-yellow-100 px-3 py-2 rounded-md">8vos</a>
+                <a routerLink="final-four" routerLinkActive="bg-yellow-100" class="hover:bg-yellow-100 px-3 py-2 rounded-md">4tos</a>
+                <a routerLink="final-two" routerLinkActive="bg-yellow-100" class="hover:bg-yellow-100 px-3 py-2 rounded-md">Semis</a>
+                <a routerLink="final" routerLinkActive="bg-yellow-100" class="hover:bg-yellow-100 px-3 py-2 rounded-md">Final</a>
             </div>
+            <!-- Botón de menú para pantallas pequeñas -->
             <div class="md:hidden">
                 <button (click)="toggleMenu()"
                     class="text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-100 focus:ring-white">
@@ -23,13 +26,13 @@
             </div>
         </div>
     </div>
+    <!-- Menú desplegable para pantallas pequeñas -->
     @if (isMenuOpen) {
     <div class="md:hidden">
-        <a href="#" class="block pl-20 py-2 hover:bg-yellow-900/10">8vos</a>
-        <a href="#" class="block pl-20 py-2 hover:bg-yellow-900/10">4tos</a>
-        <a href="#" class="block pl-20 py-2 hover:bg-yellow-900/10">Semis</a>
-        <a href="#" class="block pl-20 py-2 hover:bg-yellow-900/10">Final</a>
+        <a routerLink="final-eight" routerLinkActive="bg-yellow-900/10" class="block pl-20 py-2 hover:bg-yellow-900/10">8vos</a>
+        <a routerLink="final-four" routerLinkActive="bg-yellow-900/10" class="block pl-20 py-2 hover:bg-yellow-900/10">4tos</a>
+        <a routerLink="final-two" routerLinkActive="bg-yellow-900/10" class="block pl-20 py-2 hover:bg-yellow-900/10">Semis</a>
+        <a routerLink="final" routerLinkActive="bg-yellow-900/10" class="block pl-20 py-2 hover:bg-yellow-900/10">Final</a>
     </div>
     }
-
 </nav>
