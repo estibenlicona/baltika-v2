@@ -1,0 +1,32 @@
+<div class="flex flex-col">
+    <form [formGroup]="form" class="flex flex-row gap-2 h-20 items-center justify-end">
+        <app-select class="min-w-40" [options]="teamsOptions" formControlName="teamSelected" placeholder="Equipo"></app-select>
+        <app-select class="min-w-40" [options]="matchdaysOptions" formControlName="matchdaySelected" placeholder="Jornada"></app-select>
+    </form>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        @for (match of matchesFiltered; track $index) {
+        <div class="grid grid-cols-[20%,60%,20%] font-sans font-semibold bg-white/95">
+            <div class="h-16 p-2 border-b flex justify-center items-center">
+                <img [attr.src]="'images/emblems/' + match.homeEmblem" class="h-full w-full object-contain">
+            </div>
+            <div class="flex items-center h-16 border-b">{{ match.home }}</div>
+            <div
+                class="flex items-center h-16 p-4 border-b border-l justify-center font-sans antialiased font-semibold text-2xl">
+                {{ match.homeGoals }}</div>
+            <div class="h-16 p-2 flex justify-center items-center">
+                <img [attr.src]="'images/emblems/' + match.awayEmblem" class="h-full w-full object-contain">
+            </div>
+            <div class="flex items-center h-16">{{ match.away }}</div>
+            <div
+                class="flex items-center h-16 p-4 border-l justify-center font-sans antialiased font-semibold text-2xl">
+                {{ match.awayGoals }}
+            </div>
+            <div class="col-span-3 flex items-center justify-center text-sm p-1 border-t">
+                Jornada {{ match.matchDay }}
+            </div>
+        </div>
+        }
+
+    </div>
+</div>

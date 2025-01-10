@@ -1,0 +1,25 @@
+<div class="relative select-container-{{componentId}}" (click)="toggleDropdown()">
+  <div class="bg-white rounded-lg p-3 flex justify-between items-center cursor-pointer" [class.rounded-b-none]="isOpen">
+    <span class="text-gray-700 text-md">{{ getSelectedLabel() }}</span>
+    @if (isSelected()) {
+    <span class="arrow text-gray-600" [class.open]="isOpen">
+      <i class="fas fa-chevron-down"></i>
+    </span>
+
+    }
+    @else {
+    <button class="ml-2 p-1 focus:outline-none" (click)="clearSelection($event)">✕</button>
+    }
+  </div>
+
+  @if(isOpen){
+  <div class="absolute bg-white border rounded-lg rounded-t-none min-w-40 z-10 overflow-y-auto max-h-[500px]">
+    @for (option of options; track $index) {
+    <div class="dropdown-item p-2 hover:bg-gray-100 cursor-pointer whitespace-nowrap"
+      (click)="selectOption(option.value)">
+      {{ option.label }}
+    </div>
+    }
+  </div>
+  }
+</div>

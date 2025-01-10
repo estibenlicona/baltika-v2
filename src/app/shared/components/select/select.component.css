@@ -1,0 +1,8 @@
+.arrow {
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.arrow.open {
+    transform: rotate(180deg);
+}

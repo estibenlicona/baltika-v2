@@ -1,23 +1,21 @@
-<nav>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<nav class="bg-rose-500 text-rose-50">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <!-- Contenedor del título, alineado a la izquierda -->
-            <div class="flex items-center font-sans antialiased font-bold text-2xl p-2">
-                🎄Christmas CUP🎅
-                <span class="text-sm text-gray-600 lg:text-primary italic">by Baktika</span>
+            <div class="flex flex-no-shrink items-center font-sans antialiased font-bold text-2xl p-2">
+                <img routerLink="/positions" src="/images/baltika-logo.ico" class="h-12 w-12 object-cover rounded-xl mx-2 cursor-pointer">
+                <span routerLink="/positions" class="cursor-pointer">Liga Baltika</span>
             </div>
             <!-- Contenedor del menú, alineado a la derecha -->
             <div class="hidden md:flex space-x-4 ml-auto">
-                <a routerLink="final-eight" routerLinkActive="bg-yellow-100" class="hover:bg-yellow-100 px-3 py-2 rounded-md">8vos</a>
-                <a routerLink="final-four" routerLinkActive="bg-yellow-100" class="hover:bg-yellow-100 px-3 py-2 rounded-md">4tos</a>
-                <a routerLink="final-two" routerLinkActive="bg-yellow-100" class="hover:bg-yellow-100 px-3 py-2 rounded-md">Semis</a>
-                <a routerLink="final" routerLinkActive="bg-yellow-100" class="hover:bg-yellow-100 px-3 py-2 rounded-md">Final</a>
+                <a routerLink="positions" routerLinkActive="bg-rose-400" class="hover:bg-rose-400 px-3 py-2 rounded-md">Posiciones</a>
+                <a routerLink="fixture" routerLinkActive="bg-rose-400" class="hover:bg-rose-400 px-3 py-2 rounded-md">Calendario</a>
             </div>
             <!-- Botón de menú para pantallas pequeñas -->
             <div class="md:hidden">
                 <button (click)="toggleMenu()"
-                    class="text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-yellow-100 focus:ring-white">
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    class="text-white focus:ring-1 focus:ring-rose-400">
+                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -29,10 +27,8 @@
     <!-- Menú desplegable para pantallas pequeñas -->
     @if (isMenuOpen) {
     <div class="md:hidden">
-        <a routerLink="final-eight" routerLinkActive="bg-yellow-900/10" class="block pl-20 py-2 hover:bg-yellow-900/10">8vos</a>
-        <a routerLink="final-four" routerLinkActive="bg-yellow-900/10" class="block pl-20 py-2 hover:bg-yellow-900/10">4tos</a>
-        <a routerLink="final-two" routerLinkActive="bg-yellow-900/10" class="block pl-20 py-2 hover:bg-yellow-900/10">Semis</a>
-        <a routerLink="final" routerLinkActive="bg-yellow-900/10" class="block pl-20 py-2 hover:bg-yellow-900/10">Final</a>
+        <a routerLink="positions" routerLinkActive="bg-rose-400" class="block pl-20 py-2 hover:bg-rose-400">Positions</a>
+        <a routerLink="fixture" routerLinkActive="bg-rose-400" class="block pl-20 py-2 hover:bg-rose-400">Fixture</a>
     </div>
     }
 </nav>
