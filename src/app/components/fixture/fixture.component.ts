@@ -6,11 +6,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest } from 'rxjs';
 
-const FIRST_MATCHDAY: number = 1;
-
 @Component({
   selector: 'app-fixture',
-  imports: [ReactiveFormsModule,SelectComponent],
+  imports: [ReactiveFormsModule, SelectComponent],
   templateUrl: './fixture.component.html',
   styleUrl: './fixture.component.css',
 })
@@ -32,14 +30,12 @@ export class FixtureComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.form.get('teamSelected')?.valueChanges.subscribe((teamId: number) => {
       const matchDay = this.form.get('matchdaySelected')?.value;
       this.filterMatches(matchDay, teamId);
     });
 
     this.form.get('matchdaySelected')?.valueChanges.subscribe((matchDay: number) => {
-      debugger
       const teamId = this.form.get('teamSelected')?.getRawValue();
       this.filterMatches(matchDay, teamId);
     });
@@ -48,26 +44,24 @@ export class FixtureComponent implements OnInit {
       this.matchesService.getMatches(),
       this.route.queryParams
     ]).subscribe(([matches, params]) => {
-      debugger
       this.matches = matches;
       this.matchesFiltered = matches;
       this.teamsOptions = this.getUniqueTeams(matches);
       this.matchdaysOptions = this.getMatchDaysAsSelectOptions(matches);
-      
       const teamId = Number(params['teamId']);
-      if(teamId){
+      if (teamId) {
         this.filterMatches(null, teamId);
       }
     });
 
-    
+
   }
 
   filterMatches(matchDay: number | null, teamId: string | number | null): void {
     this.matchesFiltered = this.matches.filter(match => {
       const matchDayCondition = matchDay ? match.matchDay === matchDay : true;
       const teamCondition = teamId ? (match.homeId === teamId || match.awayId === teamId) : true;
-      
+
       return matchDayCondition && teamCondition;
     });
   }

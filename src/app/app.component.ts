@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { MenuComponent } from './components/menu/menu.component';
 import { RouterOutlet } from '@angular/router';
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { LoaderService } from './shared/services/loader.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports:[MenuComponent,RouterOutlet]
+  imports:[MenuComponent,LoaderComponent,RouterOutlet]
 })
 export class AppComponent {
-  title = 'baltika';  
+  constructor(public loaderService: LoaderService) {
+  }
 }
