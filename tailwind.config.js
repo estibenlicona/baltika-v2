@@ -10,9 +10,9 @@ export default {
       },
       gridTemplateColumns: {
         'positions-lg': '6px 40px 40px 1fr 40px 40px 40px 40px 40px 40px 40px 40px',
-        'positions-sm': '6px 40px 40px 1fr 40px 40px 40px',
+        'positions-sm': '4px 30px 30px 1fr 30px 30px 30px',
         'positions-head-lg': '1fr repeat(8, 40px)',
-        'positions-head-sm': '1fr repeat(3, 40px)',
+        'positions-head-sm': '1fr repeat(3, 30px)',
       }
     },
   },
