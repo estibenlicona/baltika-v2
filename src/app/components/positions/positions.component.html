@@ -1,46 +1,36 @@
-<div class="flex flex-col pt-10">
-    <div class="grid grid-cols-2 bg-white rounded-lg">
-        <div class="flex items-center justify-start px-4 h-14 font-semibold">
-            <span>Club</span>
+<div class="flex flex-row justify-center pt-10">
+    <div class="flex flex-col w-full md:w-3/4 p-10 bg-white rounded-2xl">
+        <div class="table-positions-header font-semibold">
+            <div>Club</div>
+            <div>PTS</div>
+            <div>PJ</div>
+            <div>G</div>
+            <div>E</div>
+            <div>P</div>
+            <div>GF</div>
+            <div>GC</div>
+            <div>DG</div>
         </div>
-        <div class="grid grid-cols-8 h-14">
-            <div class="flex justify-center items-center font-semibold">PJ</div>
-            <div class="flex justify-center items-center font-semibold">G</div>
-            <div class="flex justify-center items-center font-semibold">E</div>
-            <div class="flex justify-center items-center font-semibold">P</div>
-            <div class="flex justify-center items-center font-semibold">GF</div>
-            <div class="flex justify-center items-center font-semibold">GC</div>
-            <div class="flex justify-center items-center font-semibold">DG</div>
-            <div class="flex justify-center items-center font-semibold w-10">PTs</div>
-        </div>
-
-        @for (position of positions; track $index) {
-        <div class="flex items-center justify-start h-14 gap-3 border-t cursor-pointer hover:bg-rose-50 border-l-8"
-            [ngClass]="{
-                    'border-l-green-600/30': isClasified($index),
-                    'border-l-rose-600/30': isLastClasified($index)
-                  }" [routerLink]="['/fixture']" [queryParams]="{teamId:  position.teamId}">
-            <div class="flex justify-center items-center font-semibold text-xl border-r w-16">
-                <span>{{ $index + 1 }}</span>
+        <div class="table-positions border-b" *ngFor="let team of positions; let position = index">
+            <div class="h-10 w-full" [ngClass]="{'bg-blue-500': isClasified(position), 'bg-rose-500': isLastClasified(position)}"></div>
+            <div class="font-semibold">
+                {{ position + 1 }}
             </div>
-            <div class="h-full p-2 w-16">
-                <img [attr.src]="'images/emblems/' + position.emblem" class="h-full w-full object-contain">
+            <div>
+                <img [attr.src]="'images/emblems/' + team.emblem" class="h-8 w-8 object-contain">
             </div>
-            <div class="font-extralight flex-col">
-                <div>{{ position.teamName }}</div>
-                <div class="text-xs">{{ position.assistant }}</div>
+            <div class="flex flex-col">
+                <span class="font-semibold">{{ team.teamName }}</span>
+                <span class="text-xs font-extralight">{{ team.assistant }}</span>
             </div>
+            <div class="font-semibold">{{ team.points }}</div>
+            <div>{{ team.matches_played }}</div>
+            <div>{{ team.wins }}</div>
+            <div>{{ team.draws }}</div>
+            <div>{{ team.losses }}</div>
+            <div>{{ team.goals_for }}</div>
+            <div>{{ team.goals_against }}</div>
+            <div>{{ team.goal_difference }}</div>
         </div>
-        <div class="grid grid-cols-8 h-14 border-t">
-            <div class="flex justify-center items-center font-semibold">{{ position.matches_played }}</div>
-            <div class="flex justify-center items-center font-semibold">{{ position.wins }}</div>
-            <div class="flex justify-center items-center font-semibold">{{ position.draws }}</div>
-            <div class="flex justify-center items-center font-semibold">{{ position.losses }}</div>
-            <div class="flex justify-center items-center font-semibold">{{ position.goals_for }}</div>
-            <div class="flex justify-center items-center font-semibold">{{ position.goals_against }}</div>
-            <div class="flex justify-center items-center font-semibold">{{ position.goal_difference }}</div>
-            <div class="flex justify-center items-center font-semibold">{{ position.points }}</div>
-        </div>
-        }
     </div>
 </div>

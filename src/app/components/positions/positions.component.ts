@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { PositionsService } from '../../shared/services/positions.service';
 import { PositionsQuery } from '../../shared/interfaces/queries/position.query';
 import { RouterModule } from '@angular/router';
-import { NgClass } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-positions',
-  imports: [RouterModule,NgClass],
+  imports: [RouterModule, NgFor, NgClass],
   templateUrl: './positions.component.html',
   styleUrl: './positions.component.css'
 })
