@@ -1,17 +1,18 @@
 <div class="flex flex-row justify-center pt-10">
-    <div class="flex flex-col w-full md:w-3/4 p-10 bg-white rounded-2xl">
-        <div class="table-positions-header font-semibold">
+    <div class="flex flex-col w-full lg:w-3/4 py-10 lg:p-10 bg-white rounded-2xl">
+        <div class="table-positions-header grid grid-cols-positions-head-sm lg:grid-cols-positions-head-lg font-semibold">
             <div>Club</div>
             <div>PTS</div>
             <div>PJ</div>
-            <div>G</div>
-            <div>E</div>
-            <div>P</div>
-            <div>GF</div>
-            <div>GC</div>
+            <div class="hidden lg:block">G</div>
+            <div class="hidden lg:block">E</div>
+            <div class="hidden lg:block">P</div>
+            <div class="hidden lg:block">GF</div>
+            <div class="hidden lg:block">GC</div>
             <div>DG</div>
         </div>
-        <div class="table-positions border-b" *ngFor="let team of positions; let position = index">
+        <div class="table-positions border-b grid grid-cols-positions-sm lg:grid-cols-positions-lg hover:bg-rose-50 cursor-pointer" 
+            *ngFor="let team of positions; let position = index" [routerLink]="['/fixture']" [queryParams]="{teamId:  team.teamId}">
             <div class="h-10 w-full" [ngClass]="{'bg-blue-500': isClasified(position), 'bg-rose-500': isLastClasified(position)}"></div>
             <div class="font-semibold">
                 {{ position + 1 }}
@@ -25,11 +26,11 @@
             </div>
             <div class="font-semibold">{{ team.points }}</div>
             <div>{{ team.matches_played }}</div>
-            <div>{{ team.wins }}</div>
-            <div>{{ team.draws }}</div>
-            <div>{{ team.losses }}</div>
-            <div>{{ team.goals_for }}</div>
-            <div>{{ team.goals_against }}</div>
+            <div class="hidden lg:block">{{ team.wins }}</div>
+            <div class="hidden lg:block">{{ team.draws }}</div>
+            <div class="hidden lg:block">{{ team.losses }}</div>
+            <div class="hidden lg:block">{{ team.goals_for }}</div>
+            <div class="hidden lg:block">{{ team.goals_against }}</div>
             <div>{{ team.goal_difference }}</div>
         </div>
     </div>

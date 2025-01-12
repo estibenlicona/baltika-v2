@@ -1,6 +1,4 @@
 .table-positions-header {
-    display: grid;
-    grid-template-columns: 1fr repeat(8, 40px);
     height: 40px;
     font-size: 14px;
     justify-items: center;
@@ -13,8 +11,6 @@
 }
 
 .table-positions {
-    display: grid;
-    grid-template-columns: 6px 40px 40px 1fr 40px 40px 40px 40px 40px 40px 40px 40px;
     height: 45px;
     font-size: 14px;
     justify-items: center;
