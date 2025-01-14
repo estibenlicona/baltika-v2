@@ -11,4 +11,5 @@ export interface MatchsQuery {
     awayEmblem: string;
     homeAssistant: string;
     awayAssistant: string;
+    played: boolean;
 };

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { MatchsQuery } from '../interfaces/queries/matchs.query';
 
 @Injectable({
@@ -13,7 +13,9 @@ export class MatchesService {
 
   constructor(private http: HttpClient) { }
 
-  getMatches(): Observable<Array<MatchsQuery>> {
-    return this.http.get<Array<MatchsQuery>>(this.apiUrl);
+  getMatches(): Observable<MatchsQuery[]> {
+    return this.http.get<MatchsQuery[]>(this.apiUrl).pipe(
+      map(matches => matches.map(match => ({ ...match, played: !!match.played })))
+    );
   }
 }

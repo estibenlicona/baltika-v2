@@ -1,7 +1,9 @@
 <div class="flex flex-col">
     <form [formGroup]="form" class="flex flex-row gap-2 h-20 items-center justify-end">
-        <app-select class="min-w-40" [options]="teamsOptions" formControlName="teamSelected" placeholder="Equipo"></app-select>
-        <app-select class="min-w-40" [options]="matchdaysOptions" formControlName="matchdaySelected" placeholder="Jornada"></app-select>
+        <app-select class="min-w-40" [options]="teamsOptions" formControlName="teamSelected"
+            placeholder="Equipo"></app-select>
+        <app-select class="min-w-40" [options]="matchdaysOptions" formControlName="matchdaySelected"
+            placeholder="Jornada"></app-select>
     </form>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -13,16 +15,25 @@
             <div class="flex items-center h-16 border-b">{{ match.home }}</div>
             <div
                 class="flex items-center h-16 p-4 border-b border-l justify-center font-sans antialiased font-semibold text-2xl">
-                {{ match.homeGoals }}</div>
+                @if (match.played) {
+                <span>{{ match.homeGoals }}</span>
+                }@else{
+                <span> - </span>
+                }
+            </div>
             <div class="h-16 p-2 flex justify-center items-center">
                 <img [attr.src]="'images/emblems/' + match.awayEmblem" class="h-full w-full object-contain">
             </div>
             <div class="flex items-center h-16">{{ match.away }}</div>
             <div
                 class="flex items-center h-16 p-4 border-l justify-center font-sans antialiased font-semibold text-2xl">
-                {{ match.awayGoals }}
+                @if (match.played) {
+                <span>{{ match.awayGoals }}</span>
+                }@else{
+                <span> - </span>
+                }
             </div>
-            <div class="col-span-3 flex items-center justify-center text-sm p-1 border-t">
+            <div class="col-span-3 flex items-center justify-center text-sm p-1 border-t gap-1">
                 Jornada {{ match.matchDay }}
             </div>
         </div>
