@@ -3,8 +3,8 @@ export interface MatchsQuery {
     matchDay: number,
     homeId: number;
     awayId: number;
-    homeGoals: number;
-    awayGoals: number;
+    homeGoals?: number;
+    awayGoals?: number;
     home: string;
     away: string;
     homeEmblem: string;

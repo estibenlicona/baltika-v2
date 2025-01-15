@@ -1,0 +1,29 @@
+.flex-option {
+    display: flex;
+    align-items: center;
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.option-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.option-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+::ng-deep .mat-flat-button {
+    border-radius: 2px !important; /* Cambia este valor según lo que prefieras */
+  }

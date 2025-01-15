@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectComponent, SelectOption } from '../../shared/components/select/select.component';
-import { MatchesService } from '../../shared/services/matches.service';
+import { MatchService } from '../../shared/services/matches.service';
 import { MatchsQuery } from '../../shared/interfaces/queries/matchs.query';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -22,7 +22,7 @@ export class FixtureComponent implements OnInit {
   matches: MatchsQuery[] = [];
   matchesFiltered: MatchsQuery[] = [];
 
-  constructor(private matchesService: MatchesService, private fb: FormBuilder, private route: ActivatedRoute) {
+  constructor(private matchesService: MatchService, private fb: FormBuilder, private route: ActivatedRoute) {
     this.form = this.fb.group({
       teamSelected: [null],
       matchdaySelected: [null]

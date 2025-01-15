@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { MatchsQuery } from '../interfaces/queries/matchs.query';
 import { PositionsQuery } from '../interfaces/queries/position.query';
 
 @Injectable({
