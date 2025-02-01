@@ -12,6 +12,9 @@ import { NgClass, NgFor } from '@angular/common';
 })
 export class PositionsComponent implements OnInit {
 
+  tournamentId: number = 1;
+  seasonId: number = 2;
+
   positions: Array<PositionsQuery> = [];
 
   constructor(private positionsService: PositionsService) {
@@ -34,6 +37,6 @@ export class PositionsComponent implements OnInit {
 
   isLastClasified(position: number): boolean {
     position++;
-    return position >= 20 ? true : false;
+    return position >= (this.positions.length - 2) ? true : false;
   }
 }

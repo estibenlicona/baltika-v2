@@ -4,7 +4,7 @@ import { MatchService } from '../../shared/services/matches.service';
 import { MatchsQuery } from '../../shared/interfaces/queries/matchs.query';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest } from 'rxjs';
+import { combineLatest, map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-fixture',
@@ -40,21 +40,27 @@ export class FixtureComponent implements OnInit {
       this.filterMatches(matchDay, teamId);
     });
 
-    combineLatest([
-      this.matchesService.getMatches(),
-      this.route.queryParams
-    ]).subscribe(([matches, params]) => {
+    this.getMatches();
+  }
+
+  getMatches(){
+    this.route.queryParams.pipe(
+      map(params => ({
+        tournamentId: Number(params['tournamentId']),
+        seasonId: Number(params['seasonId']),
+        teamId: Number(params['teamId'])
+      })),
+      switchMap(({ tournamentId, seasonId, teamId }) =>
+        this.matchesService.getMatches(tournamentId, seasonId, teamId).pipe(
+          map(matches => ({ matches, teamId }))
+        )
+      )
+    ).subscribe(({ matches }) => {
       this.matches = matches;
       this.matchesFiltered = matches;
       this.teamsOptions = this.getUniqueTeams(matches);
       this.matchdaysOptions = this.getMatchDaysAsSelectOptions(matches);
-      const teamId = Number(params['teamId']);
-      if (teamId) {
-        this.filterMatches(null, teamId);
-      }
     });
-
-
   }
 
   filterMatches(matchDay: number | null, teamId: string | number | null): void {

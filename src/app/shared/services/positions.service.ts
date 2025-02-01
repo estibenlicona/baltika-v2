@@ -9,7 +9,7 @@ import { PositionsQuery } from '../interfaces/queries/position.query';
 })
 export class PositionsService {
 
-  private apiUrl = `${environment.api}/positions/1/1/1`;
+  private apiUrl = `${environment.api}/positions/1/2/1`;
 
   constructor(private http: HttpClient) { }
 
