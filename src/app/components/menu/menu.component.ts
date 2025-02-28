@@ -38,4 +38,8 @@ export class MenuComponent implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+  goToMyClub(){
+    window.open("https://myclub.baltikeishon.com", "_blank");
+  }
 }

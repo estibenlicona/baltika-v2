@@ -10,7 +10,7 @@
             <div class="hidden md:flex space-x-4 ml-auto font-semibold">
                 <a routerLink="positions" routerLinkActive="bg-rose-400" class="hover:bg-rose-300 px-3 py-2 rounded-md cursor-pointer">Posiciones</a>
                 <a routerLink="fixture" routerLinkActive="bg-rose-400" class="hover:bg-rose-300 px-3 py-2 rounded-md cursor-pointer">Calendario</a>
-                <a routerLink="myclub" routerLinkActive="bg-rose-400" class="hover:bg-rose-300 font-bold px-3 py-1 rounded-md cursor-pointer text-xl">myClub</a>
+                <a (click)="goToMyClub()" class="hover:bg-rose-300 font-bold px-3 py-1 rounded-md cursor-pointer text-xl">myClub</a>
                 <a routerLink="admin" routerLinkActive="bg-rose-400" class="hover:bg-rose-300 px-3 py-2 rounded-md cursor-pointer">Admin</a>
                 <button *ngIf="!isAuthenticated" (click)="login()" class="hover:bg-rose-300 px-3 py-2 rounded-md cursor-pointer">Login</button>
                 <button *ngIf="isAuthenticated" (click)="logout()" class="hover:bg-rose-300 px-3 py-2 rounded-md cursor-pointer">Logout</button>
@@ -33,7 +33,7 @@
     <div class="md:hidden font-semibold">
         <a routerLink="positions" routerLinkActive="bg-rose-400" class="block pl-20 py-2 hover:bg-rose-400">Positions</a>
         <a routerLink="fixture" routerLinkActive="bg-rose-400" class="block pl-20 py-2 hover:bg-rose-400">Fixture</a>
-        <a href="https://myclub.baltikeishon.com" target="_blank" class="block pl-20 py-1 text-xl hover:bg-rose-400">myClub</a>
+        <button (click)="goToMyClub()" class="block pl-20 py-1 text-xl hover:bg-rose-400">myClub</button>
         <a routerLink="admin" routerLinkActive="bg-rose-400" class="block pl-20 py-2 hover:bg-rose-400">Admin</a>
         <button *ngIf="!isAuthenticated" (click)="login()" class="block pl-20 py-2 hover:bg-rose-400">Login</button>
         <button *ngIf="isAuthenticated" (click)="logout()" class="block pl-20 py-2 hover:bg-rose-400">Logout</button>
