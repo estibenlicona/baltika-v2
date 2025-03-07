@@ -9,11 +9,10 @@ import { PositionsQuery } from '../interfaces/queries/position.query';
 })
 export class PositionsService {
 
-  private apiUrl = `${environment.api}/positions/1/2/1`;
-
   constructor(private http: HttpClient) { }
 
-  getPositions(): Observable<Array<PositionsQuery>> {
-    return this.http.get<Array<PositionsQuery>>(this.apiUrl);
+  getPositions(seasonId: number): Observable<Array<PositionsQuery>> {
+    const apiUrl = `${environment.api}/positions/1/${seasonId}/1`;
+    return this.http.get<Array<PositionsQuery>>(apiUrl);
   }
 }

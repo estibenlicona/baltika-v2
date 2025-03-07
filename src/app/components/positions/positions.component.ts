@@ -13,7 +13,7 @@ import { NgClass, NgFor } from '@angular/common';
 export class PositionsComponent implements OnInit {
 
   tournamentId: number = 1;
-  seasonId: number = 2;
+  seasonId: number = 3;
 
   positions: Array<PositionsQuery> = [];
 
@@ -25,7 +25,7 @@ export class PositionsComponent implements OnInit {
   }
 
   getPositions(){
-    this.positionsService.getPositions().subscribe((positions: Array<PositionsQuery>) => {
+    this.positionsService.getPositions(this.seasonId).subscribe((positions: Array<PositionsQuery>) => {
       this.positions = positions;
     })
   }

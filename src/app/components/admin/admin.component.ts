@@ -79,7 +79,7 @@ export class AdminComponent implements OnInit {
 
     if (this.matchForm.valid) {
       const tournamentId = 1;
-      const seasonId = 2;
+      const seasonId = 3;
       const round = 1;
       const { home, away, awayGoals, homeGoals, played } = this.matchForm.getRawValue();
       const match = { 
