@@ -1,8 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MenuComponent } from './components/menu/menu.component';
 import { RouterOutlet } from '@angular/router';
 import { LoaderComponent } from './shared/components/loader/loader.component';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -12,14 +11,5 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './app.component.css',
   imports: [MenuComponent, LoaderComponent, RouterOutlet, MatSidenavModule, MatButtonModule]
 })
-export class AppComponent implements OnInit {
-
-  oidcSecurityService: OidcSecurityService = inject(OidcSecurityService);
-
-  ngOnInit(): void {
-    this.oidcSecurityService.getPayloadFromAccessToken().subscribe(resp => {
-      debugger
-      console.log(resp);
-    });
-  }
+export class AppComponent{
 }

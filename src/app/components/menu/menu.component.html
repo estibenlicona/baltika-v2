@@ -1,7 +1,6 @@
 <nav class="bg-rose-500 text-rose-50">
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-            <!-- Contenedor del título, alineado a la izquierda -->
             <div class="flex flex-no-shrink items-center font-sans antialiased font-bold text-2xl p-2">
                 <img routerLink="/positions" src="/images/baltika-logo.ico" class="h-12 w-12 object-cover rounded-xl mx-2 cursor-pointer">
                 <span routerLink="/positions" class="cursor-pointer">Liga Baltika</span>
@@ -9,6 +8,7 @@
             <!-- Contenedor del menú, alineado a la derecha -->
             <div class="hidden md:flex space-x-4 ml-auto font-semibold">
                 <a routerLink="positions" routerLinkActive="bg-rose-400" class="hover:bg-rose-300 px-3 py-2 rounded-md cursor-pointer">Posiciones</a>
+                <a routerLink="scorers" routerLinkActive="bg-rose-400" class="hover:bg-rose-300 px-3 py-2 rounded-md cursor-pointer">Goleadores</a>
                 <a routerLink="fixture" routerLinkActive="bg-rose-400" class="hover:bg-rose-300 px-3 py-2 rounded-md cursor-pointer">Calendario</a>
                 <a (click)="goToMyClub()" class="hover:bg-rose-300 font-bold px-3 py-1 rounded-md cursor-pointer text-xl">myClub</a>
             </div>
@@ -29,6 +29,7 @@
     @if (isMenuOpen) {
     <div class="md:hidden font-semibold">
         <a routerLink="positions" routerLinkActive="bg-rose-400" class="block pl-20 py-2 hover:bg-rose-400">Positions</a>
+        <a routerLink="scorers" routerLinkActive="bg-rose-400" class="block pl-20 py-2 hover:bg-rose-400">Goleadores</a>
         <a routerLink="fixture" routerLinkActive="bg-rose-400" class="block pl-20 py-2 hover:bg-rose-400">Fixture</a>
         <button (click)="goToMyClub()" class="block pl-20 py-1 text-xl hover:bg-rose-400">myClub</button>
     </div>

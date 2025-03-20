@@ -1,0 +1,21 @@
+<div class="w-full lg:w-3/4 mx-auto pt-10">
+    <div class="bg-white rounded-lg shadow-md p-5">
+        <div class="flex justify-between font-light text-gray-500 mb-4 text-sm md:text-base">
+            <span>Jugador</span>
+            <span>Goles</span>
+        </div>
+        @for (player of scorers(); track $index) {
+        <div class="flex items-center gap-4 p-2 border-b last:border-b-0">
+            <img [src]="player.photo" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover">
+            <div>
+                <span class="block font-medium text-sm md:text-base">{{ player.name }}</span>
+                <div class="flex items-center gap-2 text-xs md:text-sm text-gray-500 font-light">
+                    <img [src]="'images/emblems/' + player.teamEmblem" class="w-5 h-5 md:w-6 md:h-6 object-cover">
+                    <span>{{ player.team }}</span>
+                </div>
+            </div>
+            <span class="ml-auto font-semibold text-sm md:text-base mr-2">{{ player.goals }}</span>
+        </div>
+        }
+    </div>
+</div>
