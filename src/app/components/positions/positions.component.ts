@@ -13,7 +13,7 @@ import { NgClass, NgFor } from '@angular/common';
 export class PositionsComponent implements OnInit {
 
   tournamentId: number = 1;
-  seasonId: number = 3;
+  seasonId: number = 4;
 
   positions: Array<PositionsQuery> = [];
 
