@@ -4,7 +4,7 @@ import { MatchService } from '../../shared/services/matches.service';
 import { MatchsQuery } from '../../shared/interfaces/queries/matchs.query';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { combineLatest, map, switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-fixture',
@@ -46,12 +46,10 @@ export class FixtureComponent implements OnInit {
   getMatches(){
     this.route.queryParams.pipe(
       map(params => ({
-        tournamentId: Number(params['tournamentId']),
-        seasonId: Number(params['seasonId']),
         teamId: Number(params['teamId'])
       })),
-      switchMap(({ tournamentId, seasonId, teamId }) =>
-        this.matchesService.getMatches(tournamentId, seasonId, teamId).pipe(
+      switchMap(({ teamId }) =>
+        this.matchesService.getMatches(teamId).pipe(
           map(matches => ({ matches, teamId }))
         )
       )

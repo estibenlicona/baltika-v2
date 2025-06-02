@@ -12,8 +12,8 @@ export class MatchService {
 
   constructor(private http: HttpClient) { }
 
-  getMatches(tournamentId: number, seasonId: number, teamId: number): Observable<MatchsQuery[]> {
-    return this.http.get<MatchsQuery[]>(`${environment.api}/match?tournamentId=${tournamentId}&seasonId=${seasonId}&teamId=${teamId}`).pipe(
+  getMatches(teamId: number): Observable<MatchsQuery[]> {
+    return this.http.get<MatchsQuery[]>(`${environment.api}/match?teamId=${teamId}`).pipe(
       map(matches => matches.map(match => ({ ...match, played: !!match.played })))
     );
   }

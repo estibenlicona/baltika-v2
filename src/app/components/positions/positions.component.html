@@ -13,7 +13,7 @@
         </div>
         <div class="table-positions border-b grid grid-cols-positions-sm lg:grid-cols-positions-lg hover:bg-rose-50 cursor-pointer" 
             *ngFor="let team of positions; let position = index" 
-            [routerLink]="['/fixture']" [queryParams]="{seasonId,  tournamentId, teamId:  team.teamId}">
+            [routerLink]="['/fixture']" [queryParams]="{teamId:  team.teamId}">
             <div class="h-10 w-full" [ngClass]="{'bg-blue-500': isClasified(position), 'bg-rose-500': isLastClasified(position)}"></div>
             <div class="font-semibold">
                 {{ position + 1 }}

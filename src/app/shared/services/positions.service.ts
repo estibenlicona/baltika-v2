@@ -11,8 +11,8 @@ export class PositionsService {
 
   constructor(private http: HttpClient) { }
 
-  getPositions(seasonId: number): Observable<Array<PositionsQuery>> {
-    const apiUrl = `${environment.api}/positions/1/${seasonId}/1`;
+  getPositions(): Observable<Array<PositionsQuery>> {
+    const apiUrl = `${environment.api}/positions`;
     return this.http.get<Array<PositionsQuery>>(apiUrl);
   }
 }

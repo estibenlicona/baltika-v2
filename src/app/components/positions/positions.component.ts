@@ -12,9 +12,6 @@ import { NgClass, NgFor } from '@angular/common';
 })
 export class PositionsComponent implements OnInit {
 
-  tournamentId: number = 1;
-  seasonId: number = 4;
-
   positions: Array<PositionsQuery> = [];
 
   constructor(private positionsService: PositionsService) {
@@ -25,7 +22,7 @@ export class PositionsComponent implements OnInit {
   }
 
   getPositions(){
-    this.positionsService.getPositions(this.seasonId).subscribe((positions: Array<PositionsQuery>) => {
+    this.positionsService.getPositions().subscribe((positions: Array<PositionsQuery>) => {
       this.positions = positions;
     })
   }
